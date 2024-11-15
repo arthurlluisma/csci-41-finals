@@ -6,7 +6,9 @@ Arthur Lluisma <br />
 Chesca Reyes <br />
 Patricia Tan <br />
 
-# Requirements
+## Requirements
 
 Note: Make sure to do this in a Python environment! <br />
-`pip install django python-dotenv mysqlclient`
+```
+pip install django python-dotenv mysqlclient
+```
