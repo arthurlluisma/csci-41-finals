@@ -2,6 +2,11 @@
 {% load static %}
 
 {% block title %}Test{% endblock title %}
+
+{% block head %}
+  <link rel="stylesheet" href="{% static "website/css/landing.css" %}" type="text/css">
+{% endblock head %}
+
 {% block content %}
   <p>"Hello World"</p>
   <ul>

@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
 # Create your views here.
-def index(request):
+def landing(request):
     ctx = {
         "tests": [
             "Test 1",
@@ -9,4 +9,4 @@ def index(request):
             "Test 3"
         ]
     }
-    return render(request, "website/index.html", ctx)
+    return render(request, "website/landing.html", ctx)
