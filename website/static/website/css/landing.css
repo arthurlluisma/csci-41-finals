@@ -6,10 +6,8 @@ nav {
   z-index: 99;
   top: 0;
   width: 100vw;
-}
-
-nav div {
-  margin-top: 0.5rem;
+  height: 4.5rem;
+  padding: 1rem;
 }
 
 nav a {
