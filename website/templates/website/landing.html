@@ -10,10 +10,14 @@
 {% endblock head %}
 
 {% block content %}
-    <p>"Hello World"</p>
-    <ul>
-        {% for test in tests %}
-            <li>{{ test }}</li>
-        {% endfor %}
-    </ul>
+    <nav>
+        <div class="nav__left">
+            <a class="nav__title" href="#">StateSpaces</a>
+            <a class="nav__link" href="#">Assignments</a> 
+            <a class="nav__link" href="#">Reservations</a>
+        </div>
+        <div class="nav__right">
+            <a class="nav__btn" href="#">Login</a>
+        </div>
+    </nav>
 {% endblock content %}
