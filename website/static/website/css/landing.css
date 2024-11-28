@@ -131,7 +131,7 @@ header {
   flex-direction: column;
   align-items: center;
   margin-top: 0.6rem;
-  transition: 1s all;
+  transition: 0.5s all;
 }
 
 .filter__heading {
