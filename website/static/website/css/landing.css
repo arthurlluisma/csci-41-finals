@@ -76,17 +76,26 @@ header {
   color: #fff;
 }
 
+.search-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid black;
+}
+
 .search {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
+  width: 45rem;
 }
 
 .searchBar {
   display: flex;
   align-items: center;
-  width: 30rem;
+  width: 100%;
   border: 1px solid black;
   border-radius: 20px;
   padding: 0.3rem;
@@ -124,13 +133,67 @@ header {
   margin-top: 0.6rem;
 }
 
-.filter__title {
+.filter__heading {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 0.4rem;
+  margin: 1rem;
 }
 
-.filter__title p {
+.filter__heading:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.filter__heading p {
   font-size: 1.35rem;
+  margin: 0;
+  padding: 0;
+}
+
+.filter__heading img {
+  padding-top: 0.1rem;
+  width: 1rem;
+}
+
+.filter__tags {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.2rem;
+  width: 100%;
+}
+
+.filter__tags__block {
+  display: flex;
+  width: 100%;
+}
+
+.filter__category p {
+  font-size: 1rem;
+}
+
+.filter__category {
+  width: 20%;
+}
+
+.filter__btn {
+  width: 100%;
+}
+
+.filter__btn button {
+  border-radius: 25px;
+  padding-top: 0.8rem;
+  padding-bottom: 0.8rem;
+  padding-left: 1.3rem;
+  padding-right: 1.3rem;
+  background: transparent;
+  border: 1px solid black;
+  margin: 0.2rem;
+}
+
+.filter__btn button:hover {
+  cursor: pointer;
 }

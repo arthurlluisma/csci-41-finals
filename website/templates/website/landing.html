@@ -7,13 +7,14 @@
 
 {% block head %}
     <link rel="stylesheet" href="{% static "website/css/landing.css" %}" type="text/css">
+    <script src="{% static "website/js/filter.js" %}" defer></script>
 {% endblock head %}
 
 {% block content %}
     <nav>
         <div class="nav__left">
             <a class="nav__title" href="#">StateSpaces</a>
-            <a class="nav__link" href="#">Assignments</a> 
+            <a class="nav__link" href="#">Assignments</a>
             <a class="nav__link" href="#">Reservations</a>
         </div>
         <div class="nav__right">
@@ -26,21 +27,58 @@
         <h1 class="header__text">Work hard, worry less.</h1>
     </header>
 
-    <section class="search">
-        <div class="searchBar">
-            <div class="searchBar__left">
-                <img src="../../../media/images/search-icon.svg" alt="">    
+    <div class="search-container">
+        <section class="search">
+            <div class="searchBar">
+                <div class="searchBar__left">
+                    <img src="../../../media/images/search-icon.svg" alt="">
+                </div>
+                <div class="searchBar__right">
+                    <input type="search"
+                           class="search-field"
+                           name="search-field"
+                           placeholder="Search for a venue..." />
+                </div>
             </div>
-            <div class="searchBar__right">
-                <input type="search" class="search-field" name="search-field" placeholder="Search for a venue..." />
+            <div class="filter">
+                <div class="filter__heading">
+                    <p>Filters</p>
+                    <img class="filter__img" src="../../../media/images/arrow-down.svg" alt="">
+                </div>
+                <div class="filter__tags" style="display: none;">
+                    <div class="filter__tags__block">
+                        <div class="filter__category">
+                            <p>Status</p>
+                        </div>
+                        <div class="filter__btn">
+                            <button>Reserved</button>
+                            <button>Open</button>
+                        </div>
+                    </div>
+                    <div class="filter__tags__block">
+                        <div class="filter__category">
+                            <p>Building</p>
+                        </div>
+                        <div class="filter__btn">
+                            <button>Revana Peak</button>
+                            <button>Green Heights</button>
+                            <button>Blue Eagle</button>
+                        </div>
+                    </div>
+                    <div class="filter__tags__block">
+                        <div class="filter__category">
+                            <p>Type</p>
+                        </div>
+                        <div class="filter__btn">
+                            <button>Meeting Room</button>
+                            <button>Study Area</button>
+                            <button>Office Space</button>
+                            <button>Conference Hall</button>
+                            <button>Workstation</button>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="filter">
-            <div class="filter__title">
-                <p>Filters</p>
-                <img src="../../../media/images/arrow-down.svg" alt="">
-            </div>
-            <div class="filter__tags"></div>
-        </div>
-    </section>
+        </section>
+    </div>
 {% endblock content %}
