@@ -11,20 +11,71 @@
 {% endblock head %}
 
 {% block content %}
+    <!-- logged out -->
+    <!--<nav>-->
+    <!--    <div class="nav__left">-->
+    <!--        <a class="nav__title" href="#">StateSpaces</a>-->
+    <!--    </div>-->
+    <!--    <div class="nav__right">-->
+    <!--        <a class="nav__btn" href="#">Login</a>-->
+    <!--    </div>-->
+    <!--</nav>-->
+
+    <!-- logged in -->
     <nav>
         <div class="nav__left">
             <a class="nav__title" href="#">StateSpaces</a>
-            <a class="nav__link" href="#">Assignments</a>
-            <a class="nav__link" href="#">Reservations</a>
         </div>
         <div class="nav__right">
-            <a class="nav__btn" href="#">Login</a>
+            <a class="nav__btn" href="#">Sign Out</a>
+            <p>Colleen Reyes</p>
         </div>
     </nav>
 
+    <!-- logged out -->
+    <!--<header>-->
+    <!--    <div class="header__bg"></div>-->
+    <!--    <h1 class="header__text">Work hard, worry less.</h1>-->
+    <!--</header>-->
+
+    <!-- logged in -->
     <header>
         <div class="header__bg"></div>
-        <h1 class="header__text">Work hard, worry less.</h1>
+        <div class="header__content">
+            <div class="header__greeting">
+                <p class="header__welcome">Welcome,</p>
+                <p class="header__name">Colleen Reyes</p>
+            </div>
+            <div class="header__information">
+                <div class="header__information__container">
+                    <p id="header__information__title">Customer Information</p>
+                    <div class="header__information__block">
+                        <div class="header__information__category">
+                            <p>Full Name</p>
+                        </div>
+                        <div class="header__information__value">
+                            <p>Reyes, Colleen L.</p>
+                        </div>
+                    </div>
+                    <div class="header__information__block">
+                        <div class="header__information__category">
+                            <p>Birth Date</p>
+                        </div>
+                        <div class="header__information__value">
+                            <p>July 17, 2002</p>
+                        </div>
+                    </div>
+                    <div class="header__information__block">
+                        <div class="header__information__category">
+                            <p>Location</p>
+                        </div>
+                        <div class="header__information__value">
+                            <p>Metro Manila</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </header>
 
     <div class="search-container">
