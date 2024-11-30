@@ -224,8 +224,8 @@ header {
 }
 
 .venueInfo:hover {
-  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5); */
-  /* transition: 0.3s; */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
+  transition: 0.3s;
   cursor: pointer;
 }
 
@@ -273,7 +273,7 @@ header {
 .venueTags {
   width: 100%;
   padding-left: 0rem;
-  margin-top: 0.2rem;
+  margin-top: 0.1rem;
   text-align: left;
   color: black;
   background-color: transparent;
@@ -314,6 +314,12 @@ header {
   border-radius: 15px;
   width:1350px;
   height: 323px;
+}
+
+.user__reservations:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
+  transition: 0.3s;
+  cursor: pointer;
 }
 
 .user__reservations img {
@@ -375,6 +381,12 @@ header {
   border-radius: 15px;
   width:1350px;
   height: 323px;
+}
+
+.available__reservations:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
+  transition: 0.3s;
+  cursor: pointer;
 }
 
 .available__reservations img {
