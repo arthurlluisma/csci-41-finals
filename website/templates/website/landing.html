@@ -8,6 +8,7 @@
 {% block head %}
     <link rel="stylesheet" href="{% static "website/css/landing.css" %}" type="text/css">
     <script src="{% static "website/js/filter.js" %}" defer></script>
+    <script src="{% static "website/js/nav.js" %}" defer></script>
 {% endblock head %}
 
 {% block content %}
@@ -28,7 +29,7 @@
         </div>
         <div class="nav__right">
             <a class="nav__btn" href="#">Sign Out</a>
-            <p>Colleen Reyes</p>
+            <p class="nav__user">Colleen Reyes</p>
         </div>
     </nav>
 
