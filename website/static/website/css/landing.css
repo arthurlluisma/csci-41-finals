@@ -199,99 +199,102 @@ header {
   cursor: pointer;
 }
 
-  .reservation-container {
-    width: 100%;
-    display: flex;
-    justify-content: center; 
-    align-items: center;
-    padding-top: 3rem; 
-  }
-  
-  .reservation {
-    display: flex;
-    flex-direction: column;
-    align-items: center; 
-    width: 418px;
-  }
-  
-  .venueInfo {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    width: 100%;
-    border: 1px solid black; 
-    border-radius: 15px; 
-    /* margin-bottom: 1rem; */
-  }
+.reservation-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 3rem;
+}
 
-  .venueInfo:hover {
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5);
-    transition: 0.3s;
-  }
-  
-  .venueTitle__row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between; 
-    width: 100%;
-  }
-  
-  .venueTitle__left p {
-    font-family: "Inter";
-    padding-left: 1rem;
-    margin-top: 1rem;
-    font-size: 16px;
-  }
-  
-  .venueTitle__right {
-    margin-top:0.4rem;
-    margin-right: 1rem;
-  }
-  
-  .venueTitle__right img {
-    width: 16px; 
-  }
-  
-  .venue_img {
-    width: 100%; 
-    height: 100%; 
-    flex-grow: 1; 
-    /* margin-top: 3px;  */
-  }
-  
-  .venue_img img {
-    width: 100%;
-    height: 100%; 
-    object-fit: cover;
-    border-radius: 0px 0px 15px 15px;
-  }
+.reservation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 418px;
+}
 
-  .venueTags {
-    width: 100%;
-    padding-left: 0.5rem;
-    margin-top: 0.5rem;
-    text-align: left;
-    color: #333;
-    background-color: transparent;
-  }
-  
-  .venue__type, .venue__building {
-    display: inline-block; 
-    font-size: 14px;
-    border-radius: 20px;
-    padding: 3px 20px 3px 20px;
-    margin-right: 5px;
-  }
-  
-.venue__type {
+.venueInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  border-radius: 15px;
+}
+
+.venueInfo:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+  transition: 0.3s;
+}
+
+.venueTitle__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  border-width: 1px 1px 0 1px;
+  border-style: solid;
+  border-color: black;
+  border-radius: 15px 15px 0 0;
+}
+
+.venueTitle__left p {
   font-family: "Inter";
+  padding-left: 1rem;
+  margin-top: 1rem;
+  font-size: 16px;
+}
+
+.venueTitle__right {
+  margin-top: 0.4rem;
+  margin-right: 1rem;
+}
+
+.venueTitle__right img {
+  width: 16px;
+}
+
+.venue_img {
+  width: 100%;
+  height: 100%;
+  flex-grow: 1;
+}
+
+.venue_img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: 1px solid black;
+  border-radius: 0px 0px 15px 15px;
+}
+
+.venueTags {
+  width: 100%;
+  padding-left: 0.5rem;
+  margin-top: 0.5rem;
+  text-align: left;
+  color: #333;
+  background-color: transparent;
+}
+
+.venue__type,
+.venue__building {
+  display: inline-block;
+  font-size: 14px;
+  border-radius: 20px;
+  padding: 3px 20px 3px 20px;
+  margin-right: 5px;
+}
+
+.venue__type {
+  font-family: "Istok Web", sans-serif;
   border-radius: 20px;
   border: 1px solid black;
 }
 
 .venue__building {
-  font-family: "Inter";
+  font-family: "Istok Web", sans-serif;
   border-radius: 20px;
   border: 1px solid black;
 }
