@@ -224,8 +224,9 @@ header {
 }
 
 .venueInfo:hover {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
-  transition: 0.3s;
+  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5); */
+  /* transition: 0.3s; */
+  cursor: pointer;
 }
 
 .venueTitle__row {
@@ -271,30 +272,145 @@ header {
 
 .venueTags {
   width: 100%;
-  padding-left: 0.5rem;
-  margin-top: 0.5rem;
+  padding-left: 0rem;
+  margin-top: 0.2rem;
   text-align: left;
-  color: #333;
+  color: black;
   background-color: transparent;
 }
 
 .venue__type,
 .venue__building {
   display: inline-block;
+  font-family: "Istok Web", sans-serif;
   font-size: 14px;
   border-radius: 20px;
-  padding: 3px 20px 3px 20px;
-  margin-right: 5px;
+  border: 1px solid black;
+  background-color: transparent;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  padding-left: 1.6rem;
+  padding-right: 1.6rem;
 }
 
-.venue__type {
-  font-family: "Istok Web", sans-serif;
-  border-radius: 20px;
-  border: 1px solid black;
+/* HORIZONTAL CARD YOUR RESERVATIONS */
+
+.yourReservations {
+  margin-left: 50px;
+  margin-right: auto;
+  padding: 3px 10px;
 }
 
-.venue__building {
-  font-family: "Istok Web", sans-serif;
-  border-radius: 20px;
+.user__reservations { 
+  display: flex;
+  align-items: center;
+  margin-left: 50px;
+  margin-right: auto;
+  margin-bottom: 20px;
+  margin-top: 1px;
+  /* padding: 10px; */
+  flex-direction: row;
   border: 1px solid black;
+  border-radius: 15px;
+  width:1350px;
+  height: 323px;
+}
+
+.user__reservations img {
+  max-width: 40%;
+  border-radius: 15px 0px 0px 15px;
+}
+
+.user__venue__name {
+  padding: 1px;
+  margin: 1px;
+}
+
+.user__reservation__information {
+  display: flex;
+  flex-direction: column; 
+  padding: 5px 10px 5px;
+  width: 60%; 
+}
+
+.user__venue__information p {
+  font-family: "Istok Web";
+  font-size: 14px;
+}
+
+.remove__btn button {
+  border: 1px solid #BF0000;
+  color: #BF0000;
+  background-color: transparent;
+  border-radius: 15px;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  padding-left: 1.6rem;
+  padding-right: 1.6rem;
+
+}
+
+.remove__btn button:hover {
+  cursor: pointer;
+}
+
+
+/* HORIZONTAL CARD AVAILABLE RESERVATIONS */
+
+.getReservations {
+  margin-left: 50px;
+  margin-right: auto;
+  padding: 3px 10px;
+}
+
+.available__reservations { 
+  display: flex;
+  align-items: center;
+  margin-left: 50px;
+  margin-right: auto;
+  margin-bottom: 20px;
+  /* padding: 10px; */
+  flex-direction: row;
+  border: 1px solid black;
+  border-radius: 15px;
+  width:1350px;
+  height: 323px;
+}
+
+.available__reservations img {
+  max-width: 40%;
+  border-radius: 15px 0px 0px 15px;
+}
+
+.new__venue__name {
+  padding: 1px;
+  margin: 1px;
+}
+
+.new__reservation__information {
+  display: flex;
+  flex-direction: column; 
+  padding: 5px 10px 5px;
+  width: 60%; 
+}
+
+.new__venue__information p {
+  font-family: "Istok Web";
+  font-size: 14px;
+}
+
+.get__btn button {
+  border: 1px solid #00820F;
+  color: #00820F;
+  background-color: transparent;
+  border-radius: 15px;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  padding-left: 1.6rem;
+  padding-right: 1.6rem;
+
+}
+
+.get__btn button:hover {
+  cursor: pointer;
 }

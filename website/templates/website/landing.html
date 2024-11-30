@@ -72,7 +72,6 @@
             </div>
         </section>
     </div>
-
     <div class="reservation-container">
         <section class="reservation">
             <!-- Card containing venue info (title, arrow, image) -->
@@ -92,14 +91,58 @@
     
             <!-- Venue tags section placed below the card -->
             <div class="venueTags">
-                <div class="venue__type">
-                    <p>Meeting Room</p>
-                </div>
-                <div class="venue__building">
-                    <p>Revana Peak</p>
-                </div>
+                <p class="venue__type">Meeting Room</p>
+                <p class="venue__building">Revana Peak</p>
             </div>
         </section>
+    </div>
+    <div class="userReservations">
+        <div class="yourReservations">
+            <h2>Your Reservations</h2>
+            <!-- <p>Your Reservations</p> -->
+        </div>
+        <div class="user__reservations">
+            <img src="../../../../media/images/cropped-picture-reservations.png" alt="Cropped Venue Image">
+            
+            <div class="user__reservation__information">
+                <div class="user__venue__information">
+                    <h4 class="user__venue__name"> Lumina Workstations</h1>
+                    <p><b>Type: </b>Computer Workstations</p>
+                    <p><b>Location: </b>5F Revana Peak, 81st Street, 3rd District, Metro City</p>
+                    <p><b>Number of Participants: </b> 25</p>
+                    <p><b>From: </b> Aug 24, 2024, 9:00 AM</p>
+                    <p><b>To: </b> Aug 25, 2024, 5:00 PM</p>
+                    <p><b>Agent: </b> Luke Mendoza</p>
+                </div>
+                <div class="remove__btn">
+                    <button>Remove Reservation</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="availableReservations">
+        <div class="getReservations">
+            <h2>Available Reservations</h2>
+        </div>
+        <div class="available__reservations">
+            <img src="../../../../media/images/cropped-picture-reservations.png" alt="Cropped Venue Image">
+            <div class="new__reservation__information">
+                <div class="new__venue__information">
+                    <h4 class="new__venue__name"> Lumina Workstations</h1>
+                    <p><b>Type: </b>Computer Workstations</p>
+                    <p><b>Location: </b>5F Revana Peak, 81st Street, 3rd District, Metro City</p>
+                    <p><b>Number of Participants: </b> 25</p>
+                    <p><b>From: </b> Aug 24, 2024, 9:00 AM</p>
+                    <p><b>To: </b> Aug 25, 2024, 5:00 PM</p>
+                    <p><b>Agent: </b> Luke Mendoza</p>
+                </div>
+                <div class="get__btn">
+                    <button>Get Reservation</button>
+                </div>
+            </div>
+        </div>
+
+
     </div>
 {% endblock content %}
 
