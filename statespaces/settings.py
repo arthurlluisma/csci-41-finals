@@ -81,12 +81,12 @@ WSGI_APPLICATION = 'statespaces.wsgi.application'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'OPTIONS': {
-            'read_default_file': './db.cnf',
-        },
-    }
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.mysql',
+    #     'OPTIONS': {
+    #         'read_default_file': './db.cnf',
+    #     },
+    # }
 }
 
 

@@ -11,3 +11,13 @@ def landing(request):
         ]
     }
     return render(request, "website/landing.html", ctx)
+
+def reservations(request):
+    ctx = {
+        "tests": [
+            "Test 1",
+            "Test 2",
+            "Test 3"
+        ]
+    }
+    return render(request, "website/reservations.html", ctx)
