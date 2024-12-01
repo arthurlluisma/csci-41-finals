@@ -1,0 +1,193 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block head %}
+<style>
+
+  #app {
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    width: 100vw;
+  }
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100vw;
+    height: 4.5rem;
+    padding: 1rem;
+    border-bottom: 1px solid #000;
+  }
+
+  nav a {
+    color: #000;
+    padding: 1rem;
+    text-decoration: none;
+  }
+
+  .nav__left {
+    width: 90rem;
+    margin-left: 0.2rem;
+  }
+
+  .nav__link {
+    font-size: 1rem;
+  }
+
+  .nav__title {
+    font-size: 1.9rem;
+  }
+
+  .nav__right {
+    width: 7rem;
+    margin-right: 1rem;
+  }
+
+  .nav__btn {
+    border: 1px solid #000;
+    border-radius: 15px;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    padding-left: 1.6rem;
+    padding-right: 1.6rem;
+  }
+
+  .spacing-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
+    padding: 5rem 0;
+  }
+
+  .login-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #000;
+    border-radius: 15px;
+    padding: 30px;
+    width: 600px;
+    height: fit-content;
+    gap: 1.2rem;
+  }
+
+  h1 {
+    margin: 0;
+  }
+
+  p {
+    margin: 0.5rem 0;
+  }
+
+  input {
+    border: 1px solid #000;
+    border-radius: 12px;
+    padding: 8px 10px;
+  }
+
+  .login-button {
+    border: none;
+    border-radius: 12px;
+    padding: 15px 20px;
+    background: #444444;
+    color: #fff;
+    cursor: pointer;
+  } 
+
+  .signup-button {
+    display: block;
+    border: 1px solid #000;
+    border-radius: 12px;
+    padding: 15px 20px;
+    color: #000;
+    text-decoration: none;
+    text-align: center;
+  }
+
+  .password-button {
+    display: block;
+    width: fit-content;
+    color: #444444;
+    text-decoration: none;
+    font-size: 0.8rem;
+  }
+
+  form, form * {
+    width: 100%;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .fields-section, .buttons-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .fields-section {
+    gap: 1rem;
+  }
+
+  .buttons-section {
+    gap: 1rem;
+  }
+
+</style>
+{% endblock head %}
+
+{% block title %}
+    State Spaces - Login
+{% endblock title %}
+
+{% block content %}
+<nav>
+    <div class="nav__left">
+        <a class="nav__title" href="#">StateSpaces</a>
+    </div>
+    <div class="nav__right">
+      <a class="nav__btn" href="{% url 'login' %}">Login</a>
+    </div>
+</nav>
+<div class="spacing-container">
+  <div class="login-container">
+    <h1>Sign up</h1>
+    <form method="POST">
+      {% csrf_token %}
+      {{ form.non_field_errors }}
+      <div class="fields-section">
+        <h2>Customer Info</h2>
+        <div class="field">
+        </div>
+        {{ form.first_name.as_field_group }}
+        {{ form.middle_initial.as_field_group }}
+        {{ form.last_name.as_field_group }}
+        {{ form.birth_date.as_field_group }}
+        <h2>Account Info</h2>
+        {{ form.username.as_field_group }}
+        {{ form.email.as_field_group }}
+        {{ form.password1.as_field_group }}
+        {{ form.password2.as_field_group }}
+      </div>
+      <div class="buttons-section">
+        <button class="login-button" type="submit">Sign up</button>
+      </div>
+    </form>
+  </div>
+</div>
+</form>
+{% endblock content %}
