@@ -8,6 +8,7 @@ nav {
   width: 100vw;
   height: 4.5rem;
   padding: 1rem;
+  transition: 0.4s all;
 }
 
 nav a {
@@ -20,17 +21,38 @@ nav a {
   margin-left: 0.2rem;
 }
 
-.nav__link {
-  font-size: 1rem;
-}
-
 .nav__title {
   font-size: 1.9rem;
 }
 
+/***********************************************/
+
+/* logged out */
+/*.nav__right {*/
+/*  width: 7rem;*/
+/*  margin-right: 1rem;*/
+/*}*/
+/**/
+/*.header__text {*/
+/*  font-size: 4.75rem;*/
+/*  color: #fff;*/
+/*}*/
+
+/* logged in */
 .nav__right {
-  width: 7rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 1rem;
+  width: 25rem;
   margin-right: 1rem;
+}
+
+/***********************************************/
+
+.nav__right p {
+  color: #fff;
+  font-size: 1rem;
 }
 
 .nav__btn {
@@ -44,7 +66,6 @@ nav a {
 
 a {
   text-decoration: none;
-  color: #000;
 }
 
 a:hover {
@@ -71,9 +92,87 @@ header {
   filter: brightness(0.6);
 }
 
-.header__text {
+.header__content {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: absolute;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+}
+
+.header__greeting {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-left: 1rem;
+  width: 50%;
+  height: 100%;
+}
+
+.header__information {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-right: 4rem;
+  width: 50%;
+  height: 100%;
+}
+
+.header__information__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 85%;
+  height: 36%;
+  background: #fff;
+  border-radius: 20px;
+  padding-left: 2rem;
+}
+
+.header__information__container p {
+  margin: 0;
+  padding: 0;
+}
+
+.header__welcome {
+  font-size: 3.5rem;
+  color: #fff;
+  padding: 0;
+  margin-top: 0;
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: 1rem;
+}
+
+.header__name {
   font-size: 4.75rem;
   color: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+#header__information__title {
+  font-size: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+.header__information__block {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.header__information__category {
+  width: 30%;
+}
+
+.header__information__value {
+  width: 70%;
 }
 
 .search-container {
