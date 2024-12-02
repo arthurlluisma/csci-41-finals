@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    State Spaces
+{% endblock title %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static "website/css/venue.css" %}" type="text/css">
+    <style>
+        {% if not user.is_authenticated %}
+            /* logged out */
+            .nav__right {
+              width: 7rem;
+              margin-right: 1rem;
+            }
+        {% else %}
+            /* logged in */
+            .nav__right {
+              display: flex;
+              justify-content: flex-end;
+              align-items: center;
+              gap: 2rem;
+              width: 25rem;
+              margin-right: 1rem;
+            }
+        {% endif %}
+    </style>
+{% endblock head %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+        <!-- logged in -->
+        <nav>
+            <div class="nav__left">
+                <a class="nav__title" href="#">StateSpaces</a>
+            </div>
+            <div class="nav__right">
+                <form class="nav__right" method="POST" action="{% url 'logout' %}">
+                    {% csrf_token %}
+                    <button type="submit" class="nav__btn">Log Out</button>
+                    <p class="nav__user">{{ customer.first_name }} {{ customer.last_name }}</p>
+                </form>
+            </div>
+        </nav>
+    {% else %}
+        <!-- logged out -->
+        <nav>
+            <div class="nav__left">
+                <a class="nav__title" href="#">StateSpaces</a>
+            </div>
+            <div class="nav__right">
+                <a class="nav__btn" href="{% url 'login' %}">Login</a>
+            </div>
+        </nav>
+    {% endif %}
+
+    <section class="venue">
+        <div class="venue__img"></div>
+        <div class="venue__content">
+            <div class="venue__title">
+                <p>Agila Room</p>
+            </div>
+            <div class="venue__tags">
+                <p>Meeting Room</p>
+                <p>Revana Peak</p>
+            </div>
+            <div class="venue__description">
+                <p>
+                    Agila Room is a meeting room with a capacity of 22 people and a floor area of 30 sqm. It is located at 6F Revana Peak Bldg, 81st Street, 3rd District, Metro City.
+                </p>
+            </div>
+            <div class="venue__button">
+                <button>Get Reservation</button>
+            </div>
+            <div class="venue__amenities">
+                <p class="venue__amenities__title">Amenities</p>
+                <div class="venue__amenities__amenity">
+                    <div class="venue__amenity__left">
+                        <p>1</p>
+                        <p>LCD TV</p>
+                    </div>
+                    <div class="venue__amenity__right">
+                        <p>45" widescreen Samsung TV LCD screen</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock content %}
