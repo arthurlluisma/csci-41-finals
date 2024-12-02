@@ -336,6 +336,10 @@ header {
   border-radius: 15px;
 }
 
+h2 {
+  font-family: "Autour One";
+}
+
 .venueInfo:hover {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
   transition: 0.3s;
@@ -432,7 +436,6 @@ header {
 .user__reservations:hover {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
   transition: 0.3s;
-  cursor: pointer;
 }
 
 .user__reservations img {
