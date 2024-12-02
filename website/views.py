@@ -1,7 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 from usermanagement.models import Customer
 
+from .forms import ReservationForm
 from .models import Agent, Amenity, Building, Reservation, Venue
 
 
@@ -75,6 +76,7 @@ def landing(request):
     }
     return render(request, "website/landing.html", ctx)
 
+
 def venue(request, pk):
     venue = Venue.objects.get(pk=pk)
     amenities = Amenity.objects.filter(venue=venue)
@@ -88,12 +90,31 @@ def venue(request, pk):
             "last_name": customer.customer_last_name,
             "birth_date": customer.customer_birth_date,
         }
+        new_reservation = Reservation()
+        if request.method == "POST":
+            form = ReservationForm(request.POST)
+            if form.is_valid():
+                new_reservation.reservation_participant_number = form.cleaned_data.get(
+                    "reservation_participant_number"
+                )
+                new_reservation.reservation_timeframe_start = form.cleaned_data.get(
+                    "reservation_timeframe_start"
+                )
+                new_reservation.reservation_timeframe_end = form.cleaned_data.get(
+                    "reservation_timeframe_end"
+                )
+                new_reservation.venue = venue
+                new_reservation.customer = Customer.objects.get(user=request.user)
+                new_reservation.save()
+                return redirect("/")
     # logged out
     else:
         customer_info = {}
+    form = ReservationForm()
     ctx = {
         "customer": customer_info,
         "venue": venue,
         "amenities": amenities,
+        "form": form,
     }
     return render(request, "website/venue.html", ctx)

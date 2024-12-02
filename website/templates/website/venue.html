@@ -71,9 +71,11 @@
                 It is located at {{ venue.venue_floor_num }} {{ venue.building.building_name }}, {{ venue.building.street_num }}, {{ venue.building.district_num }}, {{ venue.building.city_name }}.
                 </p>
             </div>
-            <div class="venue__button">
-                <button>Get Reservation</button>
-            </div>
+            <form method="POST" class="venue__button">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Get Reservation</button>
+            </form>
             <div class="venue__amenities">
                 <p class="venue__amenities__title">Amenities</p>
                 {% for amenity in amenities %}
