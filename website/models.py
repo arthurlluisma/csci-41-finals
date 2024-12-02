@@ -15,7 +15,7 @@ class Building(models.Model):
 
 
 class Agent(models.Model):
-    agent_id = models.CharField(max_length=13, primary_key=True)  # primary key
+    agent_id = models.CharField(max_length=255, primary_key=True)  # primary key
     agent_first_name = models.CharField(max_length=255)
     agent_last_name = models.CharField(max_length=255)
     manager = models.ForeignKey(
@@ -43,7 +43,7 @@ class Venue(models.Model):
 
 
 class Amenity(models.Model):
-    amenity_id = models.BigAutoField(primary_key=True)  # primary key
+    amenity_id = models.CharField(max_length=255, primary_key=True)  # primary key
     amenity_type = models.CharField(max_length=255, default="Chair")
     amenity_category = models.CharField(max_length=255, default="Furniture")
     amenity_description = models.CharField(
