@@ -244,6 +244,7 @@ header {
   align-items: center;
   margin-top: 0.6rem;
   transition: 0.5s all;
+  width: 70%;
 }
 
 .filter__heading {
@@ -293,11 +294,11 @@ header {
   width: 20%;
 }
 
-.filter__btn {
+.filter__btns {
   width: 100%;
 }
 
-.filter__btn button {
+.filter__btn {
   border-radius: 25px;
   padding-top: 0.8rem;
   padding-bottom: 0.8rem;
@@ -308,8 +309,12 @@ header {
   margin: 0.2rem;
 }
 
-.filter__btn button:hover {
+.filter__btn:hover {
   cursor: pointer;
+}
+
+.filter__btn--selected {
+  background: #222222;
 }
 
 .available-reservation-container {
