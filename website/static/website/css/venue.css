@@ -116,6 +116,10 @@ a:hover {
   padding: 0.5rem 1rem 0.5rem 1rem;
 }
 
+.venue__button button:hover {
+  cursor: pointer;
+}
+
 .venue__amenities__title {
   font-size: 1.3rem;
   margin-bottom: 1rem;
