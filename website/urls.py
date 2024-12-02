@@ -1,10 +1,10 @@
 from django.urls import path
 
-from .views import landing, reservations
+from .views import landing, venue
 
 urlpatterns = [
     path('', landing, name='landing'),
-    path('reservations', reservations, name='landing'),
+    path('venue/<int:pk>', venue, name='venue'),
 ]
 
 app_name = "website"

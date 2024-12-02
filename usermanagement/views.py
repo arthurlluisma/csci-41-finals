@@ -25,6 +25,6 @@ def sign_up(request):
             customer.save()
             if user is not None:
                 login(request, user)
-                return redirect("/website")
+                return redirect("/")
     ctx = {"form": form}
     return render(request, "signup.html", ctx)

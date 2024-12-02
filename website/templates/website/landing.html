@@ -17,7 +17,7 @@
       <!-- logged in -->
       <nav>
           <div class="nav__left">
-              <a class="nav__title" href="#">StateSpaces</a>
+            <a class="nav__title" href={% url "website:landing" %}>StateSpaces</a>
           </div>
           <div class="nav__right">
             <form class="nav__right" method="POST" action="{% url 'logout' %}">
@@ -31,7 +31,7 @@
       <!-- logged out -->
       <nav>
           <div class="nav__left">
-              <a class="nav__title" href="#">StateSpaces</a>
+            <a class="nav__title" href={% url "website:landing" %}>StateSpaces</a>
           </div>
           <div class="nav__right">
             <a class="nav__btn" href="{% url 'login' %}">Login</a>
@@ -56,7 +56,7 @@
                               <p>Full Name</p>
                           </div>
                           <div class="header__information__value">
-                            <p>{{ customer.last_name }}, {{ customer.first_name }} {{ customer.middle_initial }}.</p>
+                            <p>{{ customer.last_name }}, {{ customer.first_name }} {{ customer.middle_initial }}</p>
                           </div>
                       </div>
                       <div class="header__information__block">
@@ -72,7 +72,7 @@
                               <p>Location</p>
                           </div>
                           <div class="header__information__value">
-                              <p>Metro Manila</p>
+                            <p>{{ customer.location }}</p>
                           </div>
                       </div>
                   </div>
@@ -89,18 +89,18 @@
 
     <div class="search-container">
         <section class="search">
-            <div class="searchBar">
+            <form method="GET" class="searchBar">
                 <div class="searchBar__left">
                     <img src="../../../media/images/search-icon.svg" alt="">
                 </div>
                 <div class="searchBar__right">
                     <input type="search"
                            class="search-field"
-                           name="search-field"
+                           name="search"
                            placeholder="Search for a venue..." />
                 </div>
-            </div>
-            <div class="filter">
+            </form>
+            <form method="GET" class="filter">
                 <div class="filter__heading">
                     <p>Filters</p>
                     <img class="filter__img" src="../../../media/images/arrow-down.svg" alt="">
@@ -110,66 +110,66 @@
                         <div class="filter__category">
                             <p>Building</p>
                         </div>
-                        <div class="filter__btn">
-                            <button>Revana Peak</button>
-                            <button>Green Heights</button>
-                            <button>Blue Eagle</button>
+                        <div class="filter__btns">
+                            {% for building in venue_info.venue_buildings %}
+                              <button class="filter__btn" name="building" value="{{ building.building_name }}">{{ building.building_name }}</button> 
+                            {% endfor %}
                         </div>
                     </div>
                     <div class="filter__tags__block">
                         <div class="filter__category">
                             <p>Type</p>
                         </div>
-                        <div class="filter__btn">
-                            <button>Meeting Room</button>
-                            <button>Study Area</button>
-                            <button>Office Space</button>
-                            <button>Conference Hall</button>
-                            <button>Workstation</button>
+                        <div class="filter__btns">
+                            {% for venue in venue_info.venue_types %}
+                              <button class="filter__btn" name="type" value="{{ venue.venue_type }}">{{ venue.venue_type }}</button> 
+                            {% endfor %}
                         </div>
                     </div>
                 </div>
-            </div>
+            </form>
         </section>
     </div>
     
-    <!-- reservations already made by the user -->
-    <div class="userReservations">
-        <div class="yourReservations">
-            <h2>Your Reservations</h2>
-        </div>
-        {% for reservation in customer_reservations %}
-          <div class="user__reservations">
-              <img src="../../../../media/images/cropped-picture-reservations.png" alt="Cropped Venue Image"> 
-              <div class="user__reservation__information">
-                  <div class="user__venue__information">
-                    <p class="user__venue__name">{{ reservation.venue.venue_name }}</p>
-                    <p><b>Type: </b>{{ reservation.venue.venue_type }}</p>
-                      <p>
-                        <b>Location: </b>
-                        {{ reservation.venue.venue_floor_num }} {{ reservation.venue.building.building_name }},
-                        {{ reservation.venue.building.street_num }}, {{ reservation.venue.building.district_num }},
-                        {{ reservation.venue.building.city_name }} 
-                      </p>
-                      <p><b>Number of Participants: </b>{{ reservation.reservation_participant_number }}</p>
-                      <p><b>From: </b>{{ reservation.reservation_timeframe_start }}</p>
-                      <p><b>To: </b>{{ reservation.reservation_timeframe_end }}</p>
-                      <p><b>Agent: </b>{{ reservation.venue.agent }}</p>
-                  </div>
-                  <div class="remove__btn">
-                      <button>Remove Reservation</button>
+    {% if user.is_authenticated %}
+      <!-- reservations already made by the user -->
+      <div class="your-reservations">
+          <h2>Your Reservations</h2>
+          <div class="your-reservation-container">
+            {% for reservation in customer_reservations %}
+              <div class="user__reservations">
+                  <img src="../../../../media/images/cropped-picture-reservations.png" alt="Cropped Venue Image"> 
+                  <div class="user__reservation__information">
+                      <div class="user__venue__information">
+                        <p class="user__venue__name">{{ reservation.venue.venue_name }}</p>
+                        <p><b>Type: </b>{{ reservation.venue.venue_type }}</p>
+                          <p>
+                            <b>Location: </b>
+                            {{ reservation.venue.venue_floor_num }} {{ reservation.venue.building.building_name }},
+                            {{ reservation.venue.building.street_num }}, {{ reservation.venue.building.district_num }},
+                            {{ reservation.venue.building.city_name }} 
+                          </p>
+                          <p><b>Number of Participants: </b>{{ reservation.reservation_participant_number }}</p>
+                          <p><b>From: </b>{{ reservation.reservation_timeframe_start }}</p>
+                          <p><b>To: </b>{{ reservation.reservation_timeframe_end }}</p>
+                          <p><b>Agent: </b>{{ reservation.venue.agent }}</p>
+                      </div>
+                      <form method="POST" class="remove__btn">
+                          {% csrf_token %}
+                          <input type="hidden" name="reservation" value="{{ reservation.pk }}">
+                          <button>Remove Reservation</button>
+                      </form>
                   </div>
               </div>
+            {% endfor %}
           </div>
-        {% endfor %}
-    </div>
+      </div>
+    {% endif %}
     
     <!-- all venues available for reservation -->
-    <div class="availableReservations">
-        <div class="getReservations">
-            <h2>Available Reservations</h2>
-        </div>
-        <div class="reservation-container">
+    <div class="available-reservations">
+        <h2>Available Reservations</h2>
+        <div class="available-reservation-container">
           {% for venue in venues %}
             <section class="reservation">
                 <!-- Card containing venue info (title, arrow, image) -->
@@ -178,12 +178,12 @@
                         <div class="venueTitle__left">
                           <p>{{ venue.venue_name }}</p>
                         </div>
-                        <div class="venueTitle__right">
+                        <a class="venueTitle__right" href={{ venue.get_absolute_url }}>
                             <img src="../../../media/images/arrow-right.svg" alt="Arrow Icon">
-                        </div>
+                        </a>
                     </div>
                     <div class="venue_img">
-                        <img src="../../../../media/images/header-bg.png" alt="Venue Image">
+                        <img src="/../../../media/images/header-bg.png" alt="Venue Image">
                     </div>
                 </div>    
                 <!-- Venue tags section placed below the card -->
@@ -196,4 +196,3 @@
         </div>
     </div>
 {% endblock content %}
-

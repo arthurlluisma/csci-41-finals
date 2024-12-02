@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+  State Spaces - {{ venue.venue_name }}
+{% endblock title %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static "website/css/venue.css" %}" type="text/css">
+    <style>
+        {% if not user.is_authenticated %}
+            /* logged out */
+            .nav__right {
+              width: 7rem;
+              margin-right: 1rem;
+            }
+        {% else %}
+            /* logged in */
+            .nav__right {
+              display: flex;
+              justify-content: flex-end;
+              align-items: center;
+              gap: 2rem;
+              width: 25rem;
+              margin-right: 1rem;
+            }
+        {% endif %}
+    </style>
+{% endblock head %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+        <!-- logged in -->
+        <nav>
+            <div class="nav__left">
+                <a class="nav__title" href={% url "website:landing" %}>StateSpaces</a>
+            </div>
+            <div class="nav__right">
+                <form class="nav__right" method="POST" action="{% url 'logout' %}">
+                    {% csrf_token %}
+                    <button type="submit" class="nav__btn">Log Out</button>
+                    <p class="nav__user">{{ customer.first_name }} {{ customer.last_name }}</p>
+                </form>
+            </div>
+        </nav>
+    {% else %}
+        <!-- logged out -->
+        <nav>
+            <div class="nav__left">
+                <a class="nav__title" href={% url "website:landing" %}>StateSpaces</a>
+            </div>
+            <div class="nav__right">
+                <a class="nav__btn" href="{% url 'login' %}">Login</a>
+            </div>
+        </nav>
+    {% endif %}
+
+    <section class="venue">
+        <div class="venue__img"></div>
+        <div class="venue__content">
+            <div class="venue__title">
+              <p>{{ venue.venue_name }}</p>
+            </div>
+            <div class="venue__tags">
+              <p>{{ venue.venue_type }}</p>
+              <p>{{ venue.building.building_name }}</p>
+            </div>
+            <div class="venue__description">
+                <p>
+                {{ venue.venue_name }} is a {{ venue.venue_type }} with a capacity of {{ venue.venue_capacity }} and a floor area of {{ venue.venue_floor_area }}.
+                It is located at {{ venue.venue_floor_num }} {{ venue.building.building_name }}, {{ venue.building.street_num }}, {{ venue.building.district_num }}, {{ venue.building.city_name }}.
+                </p>
+            </div>
+            <form method="POST" class="venue__button">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Get Reservation</button>
+            </form>
+            <div class="venue__amenities">
+                <p class="venue__amenities__title">Amenities</p>
+                {% for amenity in amenities %}
+                  <div class="venue__amenities__amenity">
+                      <div class="venue__amenity__left">
+                        <p>{{ amenity.amenity_quantity }}</p>
+                        <p>{{ amenity.amenity_type }}</p>
+                      </div>
+                      <div class="venue__amenity__right">
+                        <p>{{ amenity.amenity_description }}</p>
+                      </div>
+                  </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+{% endblock content %}
