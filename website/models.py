@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 from usermanagement.models import Customer
 
@@ -40,6 +41,9 @@ class Venue(models.Model):
 
     def __str__(self):
         return self.venue_name
+
+    def get_absolute_url(self):
+        return reverse("website:venue", args=[self.pk])
 
 
 class Amenity(models.Model):

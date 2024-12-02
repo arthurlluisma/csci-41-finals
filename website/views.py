@@ -70,7 +70,9 @@ def landing(request):
     }
     return render(request, "website/landing.html", ctx)
 
-def venue(request):
+def venue(request, pk):
+    venue = Venue.objects.get(pk=pk)
+    amenities = Amenity.objects.filter(venue=venue)
     # logged in
     if request.user.is_authenticated:
         # return user details
@@ -81,15 +83,12 @@ def venue(request):
             "last_name": customer.customer_last_name,
             "birth_date": customer.customer_birth_date,
         }
-        customer_reservations = Reservation.objects.filter(customer=customer)
     # logged out
     else:
         customer_info = {}
-        customer_reservations = {}
-    venues = Venue.objects.filter(renovation_status__icontains="no")
     ctx = {
         "customer": customer_info,
-        "customer_reservations": customer_reservations,
-        "venues": venues,
+        "venue": venue,
+        "amenities": amenities,
     }
     return render(request, "website/venue.html", ctx)

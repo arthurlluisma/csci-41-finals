@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block title %}
-    State Spaces
+  State Spaces - {{ venue.venue_name }}
 {% endblock title %}
 
 {% block head %}
@@ -59,15 +59,16 @@
         <div class="venue__img"></div>
         <div class="venue__content">
             <div class="venue__title">
-                <p>Agila Room</p>
+              <p>{{ venue.venue_name }}</p>
             </div>
             <div class="venue__tags">
-                <p>Meeting Room</p>
-                <p>Revana Peak</p>
+              <p>{{ venue.venue_type }}</p>
+              <p>{{ venue.building.building_name }}</p>
             </div>
             <div class="venue__description">
                 <p>
-                    Agila Room is a meeting room with a capacity of 22 people and a floor area of 30 sqm. It is located at 6F Revana Peak Bldg, 81st Street, 3rd District, Metro City.
+                {{ venue.venue_name }} is a {{ venue.venue_type }} with a capacity of {{ venue.venue_capacity }} and a floor area of {{ venue.venue_floor_area }}.
+                It is located at {{ venue.venue_floor_num }} {{ venue.building.building_name }}, {{ venue.building.street_num }}, {{ venue.building.district_num }}, {{ venue.building.city_name }}.
                 </p>
             </div>
             <div class="venue__button">
@@ -75,15 +76,17 @@
             </div>
             <div class="venue__amenities">
                 <p class="venue__amenities__title">Amenities</p>
-                <div class="venue__amenities__amenity">
-                    <div class="venue__amenity__left">
-                        <p>1</p>
-                        <p>LCD TV</p>
-                    </div>
-                    <div class="venue__amenity__right">
-                        <p>45" widescreen Samsung TV LCD screen</p>
-                    </div>
-                </div>
+                {% for amenity in amenities %}
+                  <div class="venue__amenities__amenity">
+                      <div class="venue__amenity__left">
+                        <p>{{ amenity.amenity_quantity }}</p>
+                        <p>{{ amenity.amenity_type }}</p>
+                      </div>
+                      <div class="venue__amenity__right">
+                        <p>{{ amenity.amenity_description }}</p>
+                      </div>
+                  </div>
+                {% endfor %}
             </div>
         </div>
     </section>

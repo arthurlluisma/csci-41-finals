@@ -75,7 +75,7 @@ a:hover {
 }
 
 .venue__img {
-  position: sticky;
+  position: fixed;
   z-index: -99;
   background: url("../../../../media/images/header-bg.png");
   width: 25%;
@@ -88,6 +88,8 @@ a:hover {
   gap: 2rem;
   width: 75%;
   padding: 2rem 3rem 3rem 3rem;
+  position: absolute;
+  right: 0;
 }
 
 .venue__title p {
@@ -131,6 +133,7 @@ a:hover {
   gap: 1rem;
   border: 1px solid black;
   border-radius: 10px;
+  margin-bottom: 1rem;
 }
 
 .venue__amenity__left {
