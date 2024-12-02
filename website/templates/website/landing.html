@@ -12,31 +12,30 @@
 {% endblock head %}
 
 {% block content %}
-
     {% if user.is_authenticated %}
-      <!-- logged in -->
-      <nav>
-          <div class="nav__left">
-              <a class="nav__title" href="#">StateSpaces</a>
-          </div>
-          <div class="nav__right">
-            <form class="nav__right" method="POST" action="{% url 'logout' %}">
-                {% csrf_token %}
-                <button type="submit" class="nav__btn">Log Out</button>
-                <p class="nav__user">{{ customer.first_name }} {{ customer.last_name }}</p>
-              </form>
-          </div>
-      </nav>
+        <!-- logged in -->
+        <nav>
+            <div class="nav__left">
+                <a class="nav__title" href={% url "website:landing" %}>StateSpaces</a>
+            </div>
+            <div class="nav__right">
+                <form class="nav__right" method="POST" action="{% url 'logout' %}">
+                    {% csrf_token %}
+                    <button type="submit" class="nav__btn">Log Out</button>
+                    <p class="nav__user">{{ customer.first_name }} {{ customer.last_name }}</p>
+                </form>
+            </div>
+        </nav>
     {% else %}
-      <!-- logged out -->
-      <nav>
-          <div class="nav__left">
-              <a class="nav__title" href="#">StateSpaces</a>
-          </div>
-          <div class="nav__right">
-            <a class="nav__btn" href="{% url 'login' %}">Login</a>
-          </div>
-      </nav>
+        <!-- logged out -->
+        <nav>
+            <div class="nav__left">
+                <a class="nav__title" href={% url "website:landing" %}>StateSpaces</a>
+            </div>
+            <div class="nav__right">
+                <a class="nav__btn" href="{% url 'login' %}">Login</a>
+            </div>
+        </nav>
     {% endif %}
 
     {% if user.is_authenticated %}
