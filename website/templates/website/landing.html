@@ -17,7 +17,7 @@
       <!-- logged in -->
       <nav>
           <div class="nav__left">
-              <a class="nav__title" href="#">StateSpaces</a>
+            <a class="nav__title" href={% url "website:landing" %}>StateSpaces</a>
           </div>
           <div class="nav__right">
             <form class="nav__right" method="POST" action="{% url 'logout' %}">
