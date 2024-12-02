@@ -244,6 +244,7 @@ header {
   align-items: center;
   margin-top: 0.6rem;
   transition: 0.5s all;
+  width: 70%;
 }
 
 .filter__heading {
@@ -293,11 +294,11 @@ header {
   width: 20%;
 }
 
-.filter__btn {
+.filter__btns {
   width: 100%;
 }
 
-.filter__btn button {
+.filter__btn {
   border-radius: 25px;
   padding-top: 0.8rem;
   padding-bottom: 0.8rem;
@@ -308,16 +309,21 @@ header {
   margin: 0.2rem;
 }
 
-.filter__btn button:hover {
+.filter__btn:hover {
   cursor: pointer;
 }
 
-.reservation-container {
+.filter__btn--selected {
+  background: #222222;
+}
+
+.available-reservation-container {
   width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  padding-top: 3rem;
+  gap: 2rem;
+
 }
 
 .reservation {
@@ -338,6 +344,7 @@ header {
 
 h2 {
   font-family: "Autour One";
+  margin: 2.5rem 0 1.5rem 0;
 }
 
 .venueInfo:hover {
@@ -358,7 +365,7 @@ h2 {
 }
 
 .venueTitle__left p {
-  font-family: "Inter";
+  font-family: "Autour One";
   padding-left: 1rem;
   margin-top: 1rem;
   font-size: 16px;
@@ -410,42 +417,38 @@ h2 {
   padding-right: 1.6rem;
 }
 
-/* HORIZONTAL CARD YOUR RESERVATIONS */
+/* YOUR RESERVATIONS */
 
-.yourReservations {
-  margin-left: 50px;
-  margin-right: auto;
-  padding: 3px 10px;
+.your-reservations {
+  width: 100vw;
+  height: fit-contents;
+  margin: auto;
+  padding: 1rem 2rem;
+}
+
+.your-reservation-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 2rem;
 }
 
 .user__reservations { 
   display: flex;
   align-items: center;
-  margin-left: 50px;
-  margin-right: auto;
-  margin-bottom: 20px;
-  margin-top: 1px;
-  /* padding: 10px; */
+  padding: 1rem;
   flex-direction: row;
   border: 1px solid black;
   border-radius: 15px;
-  width:1350px;
-  height: 323px;
-}
-
-.user__reservations:hover {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
-  transition: 0.3s;
+  width:100%;
+  height: fit-content;
 }
 
 .user__reservations img {
   max-width: 40%;
   border-radius: 15px 0px 0px 15px;
-}
-
-.user__venue__name {
-  padding: 1px;
-  margin: 1px;
 }
 
 .user__reservation__information {
@@ -455,9 +458,15 @@ h2 {
   width: 60%; 
 }
 
-.user__venue__information p {
+.user__venue__information {
   font-family: "Istok Web";
-  font-size: 14px;
+}
+
+.user__venue__name {
+  font-family: "Autour One";
+  font-size: 1.2rem;
+  padding: 1px;
+  margin: 1px;
 }
 
 .remove__btn button {
@@ -469,7 +478,6 @@ h2 {
   padding-bottom: 0.75rem;
   padding-left: 1.6rem;
   padding-right: 1.6rem;
-
 }
 
 .remove__btn button:hover {
@@ -477,7 +485,11 @@ h2 {
 }
 
 
-/* HORIZONTAL CARD AVAILABLE RESERVATIONS */
+/* AVAILABLE RESERVATIONS */
+
+.available-reservations {
+  padding: 1rem 2rem;
+}
 
 .getReservations {
   margin-left: 50px;
