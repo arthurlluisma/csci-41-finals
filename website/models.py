@@ -15,7 +15,7 @@ class Building(models.Model):
 
 
 class Agent(models.Model):
-    agent_id = models.BigAutoField(primary_key=True)  # primary key
+    agent_id = models.CharField(max_length=13, primary_key=True)  # primary key
     agent_first_name = models.CharField(max_length=255)
     agent_last_name = models.CharField(max_length=255)
     manager = models.ForeignKey(
@@ -41,6 +41,7 @@ class Venue(models.Model):
     def __str__(self):
         return self.venue_name
 
+
 class Amenity(models.Model):
     amenity_id = models.BigAutoField(primary_key=True)  # primary key
     amenity_type = models.CharField(max_length=255, default="Chair")
@@ -48,10 +49,12 @@ class Amenity(models.Model):
     amenity_description = models.CharField(
         max_length=255, default="A piece of furniture equipment"
     )
+    amenity_quantity = models.CharField(max_length=255, default="1pc.")
     venue = models.ForeignKey(Venue, on_delete=models.RESTRICT)
 
     def __str__(self):
         return self.amenity_type
+
 
 class Reservation(models.Model):
     reservation_id = models.BigAutoField(primary_key=True)  # primary key
@@ -59,6 +62,8 @@ class Reservation(models.Model):
     reservation_timeframe_start = models.DateTimeField(
         auto_now=False, auto_now_add=False
     )
-    reservation_timeframe_end = models.DateTimeField(auto_now=False, auto_now_add=False)
+    reservation_timeframe_end = models.DateTimeField(
+        auto_now=False, auto_now_add=False
+    )
     venue = models.ForeignKey(Venue, on_delete=models.RESTRICT)
     customer = models.ForeignKey(Customer, on_delete=models.RESTRICT)

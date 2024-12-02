@@ -10,6 +10,7 @@ class Customer(models.Model):
     customer_middle_initial = models.CharField(max_length=255)
     customer_last_name = models.CharField(max_length=255)
     customer_birth_date = models.DateField(auto_now=False, auto_now_add=False)
+    customer_location = models.CharField(max_length=255)
 
     def __str__(self):
         return "{}, {} {}.".format(
