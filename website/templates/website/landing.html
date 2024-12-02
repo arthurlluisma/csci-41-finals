@@ -154,9 +154,11 @@
                           <p><b>To: </b>{{ reservation.reservation_timeframe_end }}</p>
                           <p><b>Agent: </b>{{ reservation.venue.agent }}</p>
                       </div>
-                      <div class="remove__btn">
+                      <form method="POST" class="remove__btn">
+                          {% csrf_token %}
+                          <input type="hidden" name="reservation" value="{{ reservation.pk }}">
                           <button>Remove Reservation</button>
-                      </div>
+                      </form>
                   </div>
               </div>
             {% endfor %}

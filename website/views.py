@@ -19,6 +19,11 @@ def landing(request):
             "location": customer.customer_location,
         }
         customer_reservations = Reservation.objects.filter(customer=customer)
+        # check for remove reservation
+        if request.method == "POST":
+            reservation_to_remove = request.POST.get("reservation")
+            reservation_to_remove = Reservation.objects.get(pk=reservation_to_remove)
+            reservation_to_remove.delete()
     # logged out
     else:
         customer_info = {}
