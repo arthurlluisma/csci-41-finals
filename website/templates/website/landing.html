@@ -87,9 +87,9 @@
       </header>
     {% endif %}
 
-    <form method="GET" class="search-container">
+    <div class="search-container">
         <section class="search">
-            <div class="searchBar">
+            <form method="GET" class="searchBar">
                 <div class="searchBar__left">
                     <img src="../../../media/images/search-icon.svg" alt="">
                 </div>
@@ -99,8 +99,8 @@
                            name="search"
                            placeholder="Search for a venue..." />
                 </div>
-            </div>
-            <div class="filter">
+            </form>
+            <form method="GET" class="filter">
                 <div class="filter__heading">
                     <p>Filters</p>
                     <img class="filter__img" src="../../../media/images/arrow-down.svg" alt="">
@@ -119,7 +119,6 @@
                     <div class="filter__tags__block">
                         <div class="filter__category">
                             <p>Type</p>
-                            <input type="hidden" id="venueType" name="type" value="" />
                         </div>
                         <div class="filter__btns">
                             {% for venue in venue_info.venue_types %}
@@ -128,9 +127,9 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </form>
         </section>
-    </form>
+    </div>
     
     {% if user.is_authenticated %}
       <!-- reservations already made by the user -->
