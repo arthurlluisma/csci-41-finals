@@ -16,6 +16,7 @@ def landing(request):
             "middle_initial": customer.customer_middle_initial,
             "last_name": customer.customer_last_name,
             "birth_date": customer.customer_birth_date,
+            "location": customer.customer_location,
         }
         customer_reservations = Reservation.objects.filter(customer=customer)
     # logged out
